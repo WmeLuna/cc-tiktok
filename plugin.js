@@ -1,22 +1,15 @@
 export function onLoad() {
     
 function tiktokEmbed(a) {
-  if (a.message.embeds[0] && a.message.embeds[0].provider && a.message.embeds[0].provider.name === "TikTok") {
+  if (a.message.embeds[0] && a.message.embeds[0].provider && a.message.embeds[0].provider.name === "TikTok" && a.message.embeds[0].image) {
     console.log(a.message.embeds[0])
     //a.message.embeds[0].provider.name = "TikTok Embed"
     a.message.embeds[0].type = "video"
     a.message.embeds[0].thumbnail = a.message.embeds[0].image
     a.message.embeds[0].video = {}
-    if (a.message.embeds[0].image) {
-      a.message.embeds[0].video.height = 300//a.message.embeds[0].thumbnail.width 
-      a.message.embeds[0].video.width = 400//a.message.embeds[0].thumbnail.height
-      a.message.embeds[0].video.url = "https://tt-embed.com/video/" + btoa(a.message.embeds[0].url).split('/')[0]
-    } /*else {
-      a.message.embeds[0].thumbnail = {}
-      a.message.embeds[0].video.height = a.message.embeds[0].thumbnail.height = 1440
-      a.message.embeds[0].video.width = a.message.embeds[0].thumbnail.width = 1280
-    }*/
-    
+    a.message.embeds[0].video.height = 300//a.message.embeds[0].thumbnail.width 
+    a.message.embeds[0].video.width = 400//a.message.embeds[0].thumbnail.height
+    a.message.embeds[0].video.url = "https://tt-embed.com/video/" + btoa(a.message.embeds[0].url).split('/')[0]
   } 
   else if (a.message.embeds[0] && a.message.embeds[0].provider && a.message.embeds[0].provider.url === "https://tt-embed.com/"){
     console.log(a.message.embeds[0])
