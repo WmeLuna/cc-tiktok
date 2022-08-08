@@ -1,0 +1,6 @@
+{
+  "name": "TikTok embeds",
+  "description": "Replaces tiktok's thumbnails in embeds with playable videos ",
+  "author": "WmeLuna",
+  "file": "plugin.js"
+}
