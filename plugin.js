@@ -2,18 +2,22 @@ export function onLoad() {
     
 function tiktokEmbed(a) {
   if (a.message.embeds[0] && a.message.embeds[0].provider && a.message.embeds[0].provider.name === "TikTok" && a.message.embeds[0].image) {
-    console.log(a.message.embeds[0])
-    //a.message.embeds[0].provider.name = "TikTok Embed"
+    //console.log(a.message.embeds[0])
+    a.message.embeds[0].provider.name = "TikTok Embed"
+    a.message.embeds[0].color = "#01d3a9"
     a.message.embeds[0].type = "video"
     a.message.embeds[0].thumbnail = a.message.embeds[0].image
     a.message.embeds[0].video = {}
-    a.message.embeds[0].video.height = 300//a.message.embeds[0].thumbnail.width 
-    a.message.embeds[0].video.width = 400//a.message.embeds[0].thumbnail.height
-    a.message.embeds[0].video.url = "https://tt-embed.com/video/" + btoa(a.message.embeds[0].url).split('/')[0]
-  } 
+    a.message.embeds[0].video.height = a.message.embeds[0].thumbnail.height * 2
+    a.message.embeds[0].video.width = a.message.embeds[0].thumbnail.width
+    a.message.embeds[0].video.url = a.message.embeds[0].video.proxyURL= "https://tt-embed.com/video/" + btoa(a.message.embeds[0].url).split('/')[0]
+    a.message.embeds[0].author = {"name": a.message.embeds[0].rawDescription}
+  } /*
   else if (a.message.embeds[0] && a.message.embeds[0].provider && a.message.embeds[0].provider.url === "https://tt-embed.com/"){
     console.log(a.message.embeds[0])
   }
+  else if (a.message.embeds[0] && a.message.embeds[0].provider && a.message.embeds[0].provider.name === "TikTok") console.log(a.message.embeds[0])
+  */
 }
 const tiktok = cumcord.patcher.findAndPatch(
     () => cumcord.modules.webpack.findByProps("MessageAccessories"),
