@@ -26,6 +26,7 @@ const tiktok = cumcord.patcher.findAndPatch(
     () => cumcord.modules.webpack.findByProps("MessageAccessories"),
     (header) => cumcord.patcher.before("default", header, (args) => {tiktokEmbed(args[0])})
 ); 
+}
 export async function onUnload() {
       let confirmed = await cumcord.ui.modals.showConfirmationModal({
         header: "Are you sure?",
