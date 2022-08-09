@@ -1,3 +1,4 @@
+let tiktok;
 export function onLoad() {
     
   function tiktokEmbed(a) {
@@ -22,7 +23,7 @@ export function onLoad() {
       a.message.embeds[0].author.iconURL = a.message.embeds[0].author.iconProxyURL = "https://sf16-sg.tiktokcdn.com/obj/eden-sg/uvkuhyieh7lpqpbj/pwa/512x512.png"
     } 
   }
-  const tiktok = cumcord.patcher.findAndPatch(
+  tiktok = cumcord.patcher.findAndPatch(
       () => cumcord.modules.webpack.findByProps("MessageAccessories"),
       (header) => cumcord.patcher.before("default", header, (args) => {tiktokEmbed(args[0])})
   ); 
