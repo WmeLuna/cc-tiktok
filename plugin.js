@@ -20,7 +20,7 @@ export function onLoad() {
 
       a.message.embeds[0].video = {"height": 300, "width":400}
       a.message.embeds[0].video.url = a.message.embeds[0].video.proxyURL= "https://tt-embed.com/video/" + btoa(a.message.embeds[0].url).split('/')[0]
-      a.message.embeds[0].author.iconURL = a.message.embeds[0].author.iconProxyURL = "https://sf16-sg.tiktokcdn.com/obj/eden-sg/uvkuhyieh7lpqpbj/pwa/512x512.png"
+      a.message.embeds[0].footer.iconURL = a.message.embeds[0].footer.iconProxyURL = "https://sf16-sg.tiktokcdn.com/obj/eden-sg/uvkuhyieh7lpqpbj/pwa/512x512.png"
     } 
   }
   tiktok = cumcord.patcher.findAndPatch(
