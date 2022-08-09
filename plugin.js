@@ -10,7 +10,7 @@ export function onLoad() {
       a.message.embeds[0].rawTitle = undefined
       if (a.message.embeds[0].image) {
           a.message.embeds[0].thumbnail = a.message.embeds[0].image
-          a.message.embeds[0].color = "#01d3a9"
+          a.message.embeds[0].color = "#7401d3"
           a.message.embeds[0].footer = {"text":  a.message.embeds[0].rawDescription}
       } else {
           a.message.embeds[0].thumbnail = {"height": 300, "width":400}
