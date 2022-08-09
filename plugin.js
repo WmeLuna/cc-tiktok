@@ -13,7 +13,9 @@ function tiktokEmbed(a) {
     a.message.embeds[0].video.url = a.message.embeds[0].video.proxyURL= "https://tt-embed.com/video/" + btoa(a.message.embeds[0].url).split('/')[0]
     a.message.embeds[0].author = {"name": a.message.embeds[0].rawDescription}
     a.message.embeds[0].author.iconURL = a.message.embeds[0].author.iconProxyURL = "https://sf16-sg.tiktokcdn.com/obj/eden-sg/uvkuhyieh7lpqpbj/pwa/512x512.png"
-  } /*
+  } 
+  else if (a.message.embeds[0] && a.message.embeds[0].provider && a.message.embeds[0].provider.name === "TikTok") a.message.embeds[0].provider.name = "TikTok Embed Failed"
+  /*
   else if (a.message.embeds[0] && a.message.embeds[0].provider && a.message.embeds[0].provider.url === "https://tt-embed.com/"){
     console.log(a.message.embeds[0])
   }
