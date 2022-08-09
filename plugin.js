@@ -14,10 +14,11 @@ export function onLoad() {
           a.message.embeds[0].footer = {"text":  a.message.embeds[0].rawDescription}
       } else {
           a.message.embeds[0].thumbnail = {"height": 300, "width":400}
-          a.message.embeds[0].thumbnail.url = a.message.embeds[0].thumbnail.proxyURL = "https://sf16-sg.tiktokcdn.com/obj/eden-sg/uvkuhyieh7lpqpbj/pwa/512x512.png"
+          a.message.embeds[0].thumbnail.url = a.message.embeds[0].thumbnail.proxyURL = "https://tiktok.wmeluna.repl.co/?th=" + a.message.embeds[0].url
+          //a.message.embeds[0].thumbnail.url = a.message.embeds[0].thumbnail.proxyURL = "https://sf16-sg.tiktokcdn.com/obj/eden-sg/uvkuhyieh7lpqpbj/pwa/512x512.png"
           a.message.embeds[0].footer = {"text": a.message.embeds[0].rawDescription + "\nThumbnail not provided by TikTok"}
       }
-
+      a.message.embeds[0].author.iconURL = a.message.embeds[0].author.iconProxyURL = "https://tiktok.wmeluna.repl.co/?pfp=" + a.message.embeds[0].url
       a.message.embeds[0].video = {"height": 300, "width":400}
       a.message.embeds[0].video.url = a.message.embeds[0].video.proxyURL= "https://tt-embed.com/video/" + btoa(a.message.embeds[0].url).split('/')[0]
       a.message.embeds[0].footer.iconURL = a.message.embeds[0].footer.iconProxyURL = "https://sf16-sg.tiktokcdn.com/obj/eden-sg/uvkuhyieh7lpqpbj/pwa/512x512.png"
