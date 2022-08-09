@@ -8,10 +8,11 @@ function tiktokEmbed(a) {
     a.message.embeds[0].type = "video"
     a.message.embeds[0].thumbnail = a.message.embeds[0].image
     a.message.embeds[0].video = {}
-    a.message.embeds[0].video.height = a.message.embeds[0].thumbnail.height * 2
-    a.message.embeds[0].video.width = a.message.embeds[0].thumbnail.width
+    a.message.embeds[0].video.height = 300//a.message.embeds[0].thumbnail.height *3
+    a.message.embeds[0].video.width = 400//a.message.embeds[0].thumbnail.width *3
     a.message.embeds[0].video.url = a.message.embeds[0].video.proxyURL= "https://tt-embed.com/video/" + btoa(a.message.embeds[0].url).split('/')[0]
     a.message.embeds[0].author = {"name": a.message.embeds[0].rawDescription}
+    a.message.embeds[0].author.iconURL = a.message.embeds[0].author.iconProxyURL = "https://sf16-sg.tiktokcdn.com/obj/eden-sg/uvkuhyieh7lpqpbj/pwa/512x512.png"
   } /*
   else if (a.message.embeds[0] && a.message.embeds[0].provider && a.message.embeds[0].provider.url === "https://tt-embed.com/"){
     console.log(a.message.embeds[0])
