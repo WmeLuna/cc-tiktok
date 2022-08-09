@@ -1,7 +1,7 @@
 let tiktok;
 export function onLoad() {
     
-  function tiktokEmbed(a) {
+  async function tiktokEmbed(a) {
     if (a.message.embeds[0] && a.message.embeds[0].provider && a.message.embeds[0].provider.name === "TikTok") {
       //console.log(a.message.embeds[0])
       a.message.embeds[0].provider.name = "TikTok Embed"
@@ -11,11 +11,11 @@ export function onLoad() {
       if (a.message.embeds[0].image) {
           a.message.embeds[0].thumbnail = a.message.embeds[0].image
           a.message.embeds[0].color = "#01d3a9"
-          a.message.embeds[0].footer = {"text":a.message.embeds[0].rawDescription}
+          a.message.embeds[0].footer = {"text": JSON.parse(await(await fetch('https://tt-embed.com/json/' + btoa(a.message.embeds[0].url).split('/')[0])).text()).provider_name.replace('TikTok Reembedder, ', '') + "\n" + a.message.embeds[0].rawDescription}
       } else {
           a.message.embeds[0].thumbnail = {"height": 300, "width":400}
           a.message.embeds[0].thumbnail.url = a.message.embeds[0].thumbnail.proxyURL = "https://sf16-sg.tiktokcdn.com/obj/eden-sg/uvkuhyieh7lpqpbj/pwa/512x512.png"
-          a.message.embeds[0].footer = {"text":a.message.embeds[0].rawDescription + "\nThumbnail not provided by TikTok"}
+          a.message.embeds[0].footer = {"text": JSON.parse(await(await fetch('https://tt-embed.com/json/' + btoa(a.message.embeds[0].url).split('/')[0])).text()).provider_name.replace('TikTok Reembedder, ', '') + "\n" + a.message.embeds[0].rawDescription + "\nThumbnail not provided by TikTok"}
       }
 
       a.message.embeds[0].video = {"height": 300, "width":400}
